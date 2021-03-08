@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: first baseline; */
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+ul#navigation {
+    padding: 0px;
+}
+ul#navigation li{
+    display: inline;
+    margin-right: 1rem;
+}
+ul#navigation li a{
+    text-decoration: none;
+    font-weight: 700;
+}
