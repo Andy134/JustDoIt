@@ -9,7 +9,7 @@ function ToDoCreate() {
 
     return (
         <>
-            <p>Update: {id}</p>
+            {id && <p>Update: {id}</p>}
             <div id="todoitem" style={styles.todoitem}>
                 <div>
                     Title <input type="title" name="email" />
@@ -21,6 +21,7 @@ function ToDoCreate() {
                 <br />
                 <div>
                     <button style={{ color: 'gray' }} onClick={() => history.goBack()}>Cancel</button>
+                    &nbsp;
                     <button style={{ color: 'red' }}>Save</button>
                 </div>
             </div>

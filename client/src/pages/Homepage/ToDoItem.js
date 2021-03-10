@@ -12,6 +12,7 @@ function ToDoItem() {
             <br />
             <div>
                 <button style={{ color: 'green' }} onClick={()=> history.push("/todo/123")}>Edit</button>
+                &nbsp;
                 <button style={{ color: 'red' }}>Delete</button>
             </div>
         </div>

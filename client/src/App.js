@@ -22,7 +22,7 @@ const App = () => {
                     <Route path="/homepage">
                         <Homepage />
                     </Route>
-                    <Route path="/todo">
+                    <Route path="/todo" exact>
                         <TodoCreate />
                     </Route>
                     <Route path="/todo/:id" children={<TodoCreate />}>

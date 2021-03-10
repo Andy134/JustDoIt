@@ -8,7 +8,7 @@ function Homepage() {
     return (
         <>
             <div>
-                <h3>Todo list</h3>
+                <h3>TODO LIST</h3>
             </div>
 
             <div style={{marginBottom: '1rem', textAlign: 'right', width: '50%'}}>
