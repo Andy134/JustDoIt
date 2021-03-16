@@ -1,15 +1,32 @@
 import { styles } from './../../Custom'
 import { useHistory, useParams } from "react-router-dom"
-import Button from '@material-ui/core/Button';
+import { Button, Modal } from '@material-ui/core';
+import { useState, useEffect } from 'react';
 
-function ToDoCreate() {
+function ToDoCreate({ openModal }) {
 
     const history = useHistory()
 
     const { id } = useParams();
 
+    const [open, setOpen] = useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    useEffect(() => {
+        if (openModal) {
+            setOpen(true)
+        }
+    }, [openModal])
+
     return (
-        <>
+        <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+        >
             {id && <p>Update: {id}</p>}
             <div id="todoitem" style={styles.todoitem}>
                 <div>
@@ -26,7 +43,7 @@ function ToDoCreate() {
                     <Button variant="contained" color="secondary">Save</Button>
                 </div>
             </div>
-        </>
+        </Modal>
     )
 }
 
