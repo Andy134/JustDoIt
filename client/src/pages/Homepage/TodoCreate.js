@@ -1,5 +1,6 @@
 import { styles } from './../../Custom'
 import { useHistory, useParams } from "react-router-dom"
+import Button from '@material-ui/core/Button';
 
 function ToDoCreate() {
 
@@ -20,9 +21,9 @@ function ToDoCreate() {
                 </div>
                 <br />
                 <div>
-                    <button style={{ color: 'gray' }} onClick={() => history.goBack()}>Cancel</button>
+                    <Button variant="outlined" style={{ color: 'gray' }} onClick={() => history.goBack()}>Cancel</Button>
                     &nbsp;
-                    <button style={{ color: 'red' }}>Save</button>
+                    <Button variant="contained" color="secondary">Save</Button>
                 </div>
             </div>
         </>

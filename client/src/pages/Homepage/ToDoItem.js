@@ -1,5 +1,6 @@
 import {styles} from './../../Custom'
 import {useHistory} from "react-router-dom"
+import {Button} from "@material-ui/core"
 
 function ToDoItem() {
 
@@ -11,9 +12,9 @@ function ToDoItem() {
             <div>This is what you do</div>
             <br />
             <div>
-                <button style={{ color: 'green' }} onClick={()=> history.push("/todo/123")}>Edit</button>
-                &nbsp;
-                <button style={{ color: 'red' }}>Delete</button>
+                <Button variant="outlined" onClick={()=> history.push("/todo/123")}>Edit</Button>
+                &nbsp;&nbsp;
+                <Button variant="outlined" style={{ color: 'red' }}>Delete</Button>
             </div>
         </div>
     )

@@ -1,26 +1,32 @@
 import ToDoItem from "./ToDoItem";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
+import { PostService } from "./../../services/post.service"
+import { useState, useEffect } from 'react'
+import Button from '@material-ui/core/Button';
 
 function Homepage() {
 
     const history = useHistory()
 
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+        PostService.fetchPost().then((response) => {
+            setPosts(response.data.posts)
+        }).catch((err) => alert(err))
+    }, [])
+
     return (
         <>
+
             <div>
-                <h3>TODO LIST</h3>
+                <h1>TO-DO LIST</h1>
             </div>
-
-            <div style={{marginBottom: '1rem', textAlign: 'right', width: '50%'}}>
-                <button style={{color: 'blue'}} onClick={()=> history.push("/todo")}>Add new</button>
+            {JSON.stringify(posts)}
+            <div style={{ marginBottom: '1rem', textAlign: 'right', width: '50%' }}>
+                <Button variant="contained" color="secondary" onClick={() => history.push("/todo")}>Add new</Button>
             </div>
-
-            <ToDoItem/>
-            <ToDoItem/>
-            <ToDoItem/>
-            <ToDoItem/>
-            <ToDoItem/>
-
+            {   posts.length > 0 && posts.map((post) => <ToDoItem post={post} key={post._id}/>)}
         </>
     )
 }
